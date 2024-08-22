@@ -1,5 +1,9 @@
-Feature: Search a course
-    Scenario: Should search by text
-        Given user is on "/navigation" page
-        When user search by "тестировщик"
-        Then user sees the course suggested "Тестировщик ПО"
+Feature: Book a seat in the movie app
+    Scenario: Should book one seat
+        Given user is on "/index.php" page
+        When user chooses date
+        When user chooses time
+        When user chooses 1 row 2 seat
+        When user presses button "Забронировать"
+        Then user sees a text "Приятного просмотра!"
+
