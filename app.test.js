@@ -25,13 +25,10 @@ describe("App for booking a movie tests", () => {
       page,
       ".movie-seances__time[href='#'][data-seance-id='198']"
     );
-    await clickElement(
-      page,
-      "div[class='buying-scheme__wrapper'] div:nth-child(1) span:nth-child(2)"
-    );
+    await clickElement(page, "div:nth-child(6) span:nth-child(5)");
     await clickElement(page, ".acceptin-button");
-    const actual = await getText(page, "body main p:nth-child(9)");
-    const expected = "Приятного просмотра!";
+    const actual = await getText(page, ".ticket__check-title");
+    const expected = "Вы выбрали билеты:";
     await expect(actual).toContain(expected);
   });
 
@@ -42,17 +39,11 @@ describe("App for booking a movie tests", () => {
       page,
       ".movie-seances__time[href='#'][data-seance-id='198']"
     );
-    await clickElement(
-      page,
-      "div[class='buying-scheme__wrapper'] div:nth-child(1) span:nth-child(2)"
-    );
-    await clickElement(
-      page,
-      "div[class='buying-scheme__wrapper'] div:nth-child(1) span:nth-child(3)"
-    );
+    await clickElement(page, "div:nth-child(7) span:nth-child(4)");
+    await clickElement(page, "div:nth-child(7) span:nth-child(5)");
     await clickElement(page, ".acceptin-button");
-    const actual = await getText(page, "body main p:nth-child(9)");
-    const expected = "Приятного просмотра!";
+    const actual = await getText(page, ".ticket__check-title");
+    const expected = "Вы выбрали билеты:";
     await expect(actual).toContain(expected);
   });
 
@@ -63,7 +54,7 @@ describe("App for booking a movie tests", () => {
       page,
       ".movie-seances__time[href='#'][data-seance-id='198']"
     );
-    await clickElement(page, "div:nth-child(9) span:nth-child(3)");
+    await clickElement(page, "div:nth-child(8) span:nth-child(4)");
     expect(
       String(
         await page.$eval("button", (button) => {
